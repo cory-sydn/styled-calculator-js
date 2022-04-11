@@ -1,0 +1,136 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+  }
+
+:root {
+    --btn-operator: #e5c996;
+    --btn-number: #f7e1be;
+    --bg-dark:  #363535;
+    --bg-border: #808080;
+    --border-outer: linear-gradient(165deg,  #dfc365 ,#eac447);
+}
+  
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(165deg, #ecd1f6dc, #b1a6eedc);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator_outerFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 5px 15px #0003);
+  box-shadow: 2px 2px 1px 2.5px #9c7c19, 0 0 6px 0 #eac95c inset;
+  border-radius: 24px;
+  background:  var(--border-outer);
+  padding: 1rem;
+}
+
+.calculator {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 7px solid var(--bg-dark);
+  border-radius: 12px;
+  background: var(--bg-dark);
+  filter: drop-shadow(0 0px 3px #5f4f1bac);
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 0.05vmin;
+  
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+}
+
+button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  color: #02060c;
+  background-color: var(--btn-number);
+  font-weight: 600;
+  border-radius: 3px;
+  box-shadow: 0 0 4px 1px #0004 inset;
+}
+
+.calculator-grid > button:hover {
+  opacity: 90%;
+}
+
+.calculator-grid > button:active {
+  opacity: 82%;
+  border-color: #f7e1bece;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.screen {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+  -ms-word-break: break-all;
+  -ms-word-wrap: break-word;
+  border: 4px solid var(--bg-dark);
+  border-radius: 12px;
+  box-shadow: 0 0 4px 1px rgba(54, 53, 53, 1) inset;
+  background-image: url("https://media.istockphoto.com/vectors/blue-turquoise-blurred-abstract-background-design-graphic-vector-vector-id819665724?k=20&m=819665724&s=612x612&w=0&h=sicloEPA0LALRc8LFUNyDwmQTyPZoDGa0ct7IyzhxuQ=");
+  filter: grayscale(89%);
+  background-size: cover;
+  animation: turn-on 4s;
+  animation-fill-mode: forwards;
+}
+
+.screen .previous-operand {
+  font-family: 'digital-7', Arial, Helvetica, sans-serif;
+  color: #000000e6;
+  font-size: 1.5rem;
+}
+
+.screen .current-operand {
+  font-family: 'digital-7', Arial, Helvetica, sans-serif;
+  color: #151515;
+  font-size: 2.5rem;
+}
+
+
+.border-rightBottom {
+  border-right: 0.5px solid var(--bg-border);
+  border-bottom: 0.5px solid var(--bg-border);
+}
+
+.border-bottom {
+  border-bottom: 0.5px solid var(--bg-border);
+}
+
+@font-face {
+    font-family: 'digital-7';
+    src: url(./digital-7.ttf);
+}
+
+@keyframes turn-on {
+  0%{
+      background:conic-gradient(from 90deg at 0% 0%, rgba(54, 53, 53, 1) 0%, rgba(109, 110, 110, 1) 4%, #363535 31%); 
+  }
+  100% {
+    opacity: 1;
+  }
+}
